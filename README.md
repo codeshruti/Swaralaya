@@ -21,3 +21,14 @@ npx tsc --noEmit
 - Only opening lines of songs are included; full lyrics need a licensed or public-domain corpus.
 - The raga and song dataset is a starter set and should be reviewed by a subject expert.
 - Native live pitch detection needs a native audio module (dev build).
+
+## Mix up (AI voice)
+
+The Mix up tab re-sings a song in another person's voice. It runs in the web app.
+
+- **Song**: pick from the library and sing it, record, upload, or paste a YouTube link to sing along with (audio is never downloaded from YouTube).
+- **Voice**: a 10 to 25 second sample of the target voice, recorded or uploaded.
+- **Consent**: both permission boxes must be ticked before anything is generated, and every result is labelled AI-generated in the page, the file name and the WAV metadata.
+- **Engines**:
+  - *AI voice clone* calls a [Seed-VC](https://github.com/Plachta/Seed-VC) Hugging Face Space over Gradio's HTTP API. Set `EXPO_PUBLIC_MIXUP_SPACE` to your own duplicated Space (for a dedicated GPU) and `EXPO_PUBLIC_MIXUP_SPACE_FN` if its endpoint name differs. The default is the free public Space, which can queue or run out of GPU time.
+  - *Instant key match* runs on-device and transposes the song into the voice sample's range without changing whose voice it is.
