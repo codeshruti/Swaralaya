@@ -8,6 +8,7 @@ import { colors } from './src/theme';
 import Home from './src/screens/Home';
 import Listen from './src/screens/Listen';
 import Practice from './src/screens/Practice';
+import MixUp from './src/screens/MixUp';
 import { Ragas, RagaDetail, Compare } from './src/screens/Ragas';
 import { Composers, ComposerDetail, SongDetail } from './src/screens/Composers';
 
@@ -24,6 +25,7 @@ function Tabs() {
       <Tab.Screen name="Composers" component={Composers} options={{ tabBarIcon: icon('❖') }} />
       <Tab.Screen name="Listen" component={Listen} options={{ tabBarIcon: icon('◉'), title: 'Sing' }} />
       <Tab.Screen name="Practice" component={Practice} options={{ tabBarIcon: icon('♫'), title: 'Practice' }} />
+      <Tab.Screen name="MixUp" component={MixUp} options={{ tabBarIcon: icon('⟡'), title: 'Mix up' }} />
     </Tab.Navigator>
   );
 }
