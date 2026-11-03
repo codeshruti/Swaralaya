@@ -22,6 +22,16 @@ export const composers: Composer[] = [
     bio: 'Maharaja of Travancore and a prolific composer in Sanskrit, Malayalam, Telugu and Hindi who patronised scholars of both Carnatic and Hindustani traditions.' },
   { id: 'subramania-bharati', name: 'Subramania Bharati', era: '1882–1921', born: 'Ettayapuram', place: 'Pondicherry', signature: 'Patriotic and devotional Tamil poetry',
     bio: 'Poet and freedom fighter whose Tamil songs are staples of the modern concert platform.' },
+  { id: 'papanasam-sivan', name: 'Papanasam Sivan', era: '1890–1973', born: 'Polagam', place: 'Chennai', signature: 'Tamil kritis, "Ramadasan" mudra',
+    bio: 'Called the Tamil Tyagaraja, he composed hundreds of Tamil kritis and film songs that brought Carnatic music to a wide audience.' },
+  { id: 'oothukkadu', name: 'Oothukkadu Venkata Kavi', era: 'c.1700–1765', born: 'Mannargudi region', place: 'Oothukkadu', signature: 'Krishna devotion in Tamil and Sanskrit',
+    bio: 'Composer of rhythmically rich, vividly imagined songs on Krishna, many in rare ragas.' },
+  { id: 'gopalakrishna-bharati', name: 'Gopalakrishna Bharati', era: '1810–1896', born: 'Narimanam', place: 'Anandatandavapuram', signature: 'Tamil musical drama (Nandanar Charitram)',
+    bio: 'Tamil composer best known for Nandanar Charitram and for devotional songs to Nataraja.' },
+  { id: 'ramadasu', name: 'Bhadrachala Ramadasu', era: 'c.1620–1688', born: 'Nelakondapalli', place: 'Bhadrachalam', signature: 'Telugu kirtanas to Rama',
+    bio: 'Devotee who built the temple at Bhadrachalam and poured his devotion into Telugu kirtanas.' },
+  { id: 'irayimman', name: 'Irayimman Thampi', era: 'c.1782–1856', born: 'Kerala', place: 'Thiruvananthapuram', signature: 'Malayalam lullabies and padams',
+    bio: 'Court musician of Travancore, composer of the beloved Malayalam lullaby "Omana Thinkal Kidavo".' },
 ];
 
 export const songs: Song[] = [
@@ -55,10 +65,26 @@ export const songs: Song[] = [
     opening: 'Brahmam okate para brahmam okate', meaning: 'The Absolute is one; there is only one Supreme.' },
   { id: 'bhavayami', title: 'Bhavayami Gopalabalam', composer: 'swati', raga: 'Mohanam', tala: 'Adi', language: 'Sanskrit',
     opening: 'Bhavayami gopalabalam', meaning: 'I meditate on the child Krishna.' },
+  { id: 'enna-tavam', title: 'Enna Tavam Seydanai', composer: 'papanasam-sivan', raga: 'Kapi', tala: 'Adi', language: 'Tamil',
+    opening: 'Enna tavam seydanai Yashoda', meaning: 'What penance did you perform, Yashoda, to be mother to Krishna?' },
+  { id: 'alaipayuthey', title: 'Alaipayuthey Kanna', composer: 'oothukkadu', raga: 'Kanada', tala: 'Adi', language: 'Tamil',
+    opening: 'Alaipayuthey Kanna en manam ati alaipayuthey', meaning: 'My mind wanders restlessly, Krishna, drawn by your flute.' },
+  { id: 'sabhapathikku', title: 'Sabhapathikku Veru Deivam', composer: 'gopalakrishna-bharati', raga: 'Abhogi', tala: 'Adi', language: 'Tamil',
+    opening: 'Sabhapathikku veru deivam samanam aguma', meaning: 'Can any other deity equal the Lord of the Sabha (Nataraja)?' },
+  { id: 'paluke-bangaramayena', title: 'Paluke Bangaramayena', composer: 'ramadasu', raga: 'Anandabhairavi', tala: 'Adi', language: 'Telugu',
+    opening: 'Paluke bangaramayena Kodandapani', meaning: 'Why do you speak golden words yet not answer me, O Rama?' },
+  { id: 'jagadoddharana', title: 'Jagadoddharana', composer: 'purandara', raga: 'Kapi', tala: 'Adi', language: 'Kannada',
+    opening: 'Jagadoddharana adisidale Yashode', meaning: 'Yashoda nurtured the saviour of the world.' },
+  { id: 'omana-thinkal', title: 'Omana Thinkal Kidavo', composer: 'irayimman', raga: 'Neelambari', tala: 'Adi', language: 'Malayalam',
+    opening: 'Omana thinkal kidavo', meaning: 'A lullaby: are you the tender moon, little one?' },
+  { id: 'pannagendra', title: 'Pannagendra Shayana', composer: 'swati', raga: 'Kuntalavarali', tala: 'Adi', language: 'Sanskrit',
+    opening: 'Pannagendra shayana', meaning: 'Praise to Padmanabha, who rests on the serpent king.' },
   { id: 'sakhi-re', title: 'Chinnanchiru Kiliye', composer: 'subramania-bharati', raga: 'Ragamalika', tala: 'Adi', language: 'Tamil',
     opening: 'Chinnanchiru kiliye kannamma', meaning: 'A loving address to a little child: "little parrot".' },
 ];
 
+export const LANGUAGES = ['Tamil', 'Telugu', 'Kannada', 'Malayalam', 'Sanskrit'];
+export const songsByLanguage = (l: string) => songs.filter((s) => s.language === l);
 export const composerById = (id: string) => composers.find((c) => c.id === id);
 export const songsByComposer = (id: string) => songs.filter((s) => s.composer === id);
 export const songsByRaga = (name: string) =>

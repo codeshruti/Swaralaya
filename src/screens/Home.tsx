@@ -23,6 +23,12 @@ export default function Home({ navigation }: any) {
       <View style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
         {MOODS.map((m) => <Chip key={m} label={m} onPress={() => navigation.navigate('Ragas', { mood: m })} />)}
       </View>
+      <H2>Practise</H2>
+      <Card>
+        <Body>Drone with a tanpura and sing arohanam and avarohanam with live feedback on every swara.</Body>
+        <View style={{ height: 12 }} />
+        <Button variant="ghost" title="Open swara practice" onPress={() => navigation.navigate('Practice')} />
+      </Card>
       <H2>Sing to discover</H2>
       <Card>
         <Body>Hum or sing a short phrase and Swaralaya will suggest the likely raga, matching songs and similar pieces.</Body>

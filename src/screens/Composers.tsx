@@ -1,16 +1,27 @@
 import React from 'react';
-import { Text } from 'react-native';
-import { Screen, H1, H2, Body, Card } from '../components/ui';
-import { composers, composerById, songsByComposer, songs, songsByRaga } from '../data/composers';
+import { Text, View } from 'react-native';
+import { Screen, H1, H2, Body, Card, Chip } from '../components/ui';
+import { composers, composerById, songsByComposer, songs, songsByRaga, LANGUAGES, songsByLanguage } from '../data/composers';
 import { ragaByName } from '../data/ragas';
 import { similarSongs } from '../lib/matcher';
 import { colors, font } from '../theme';
 
 export function Composers({ navigation }: any) {
+  const [lang, setLang] = React.useState<string | null>(null);
   return (
     <Screen>
-      <H1>Composers</H1>
-      <Body>The voices that shaped Carnatic music.</Body>
+      <H1>Composers and songs</H1>
+      <Body>The voices that shaped Carnatic music, in many languages.</Body>
+      <H2>Songs by language</H2>
+      <View style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
+        {LANGUAGES.map((l) => <Chip key={l} label={`${l} (${songsByLanguage(l).length})`} active={lang === l} onPress={() => setLang(lang === l ? null : l)} />)}
+      </View>
+      {lang && songsByLanguage(lang).map((s) => (
+        <Card key={s.id} onPress={() => navigation.navigate('SongDetail', { id: s.id })}>
+          <Text style={{ color: colors.text, fontSize: 18 }}>{s.title}</Text>
+          <Body>{composerById(s.composer)?.name} · {s.raga}</Body>
+        </Card>
+      ))}
       <H2>The lineage</H2>
       {composers.map((c) => (
         <Card key={c.id} onPress={() => navigation.navigate('ComposerDetail', { id: c.id })}>

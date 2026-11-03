@@ -7,6 +7,7 @@ import { Text } from 'react-native';
 import { colors } from './src/theme';
 import Home from './src/screens/Home';
 import Listen from './src/screens/Listen';
+import Practice from './src/screens/Practice';
 import { Ragas, RagaDetail, Compare } from './src/screens/Ragas';
 import { Composers, ComposerDetail, SongDetail } from './src/screens/Composers';
 
@@ -22,6 +23,7 @@ function Tabs() {
       <Tab.Screen name="Ragas" component={Ragas} options={{ tabBarIcon: icon('♪') }} />
       <Tab.Screen name="Composers" component={Composers} options={{ tabBarIcon: icon('❖') }} />
       <Tab.Screen name="Listen" component={Listen} options={{ tabBarIcon: icon('◉'), title: 'Sing' }} />
+      <Tab.Screen name="Practice" component={Practice} options={{ tabBarIcon: icon('♫'), title: 'Practice' }} />
     </Tab.Navigator>
   );
 }
